@@ -1,0 +1,11 @@
+.row.pull-right.langs
+    button.btn-link(type="button", id="en") EN
+    p /
+    button.btn-link(type="button", id="ru") RU
+div(id="header")
+    h2= landing.greeting[language].header
+    each line in landing.greeting[language].text
+        if (line)
+            p= line
+        else
+            br

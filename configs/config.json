@@ -1,0 +1,40 @@
+{
+  "development": {
+    "name": "landing-page",
+    "version": "0.0.1",
+    "port" : 3005,
+    "logsDir": "full path to log files",
+    "pageName" : "Name of content model - 'Holateam', as a default",
+    "mongoConnection" : {
+      "uri": "mongodb uri connection",
+      "options": {
+        "user": "username",
+        "pass": "password",
+        "server": {
+          "poolSize": 5,
+          "reconnectTries": 1000,
+          "reconnectInterval": 1000
+        }
+      }
+    }
+  },
+  "production": {
+    "name": "landing-page",
+    "version": "0.0.1",
+    "port" : 80,
+    "logsDir": "full path to log files",
+    "pageName" : "Name of content model - 'Holateam', as a default",
+    "mongoConnection" : {
+      "uri": "mongodb uri connection",
+      "options": {
+        "user": "username",
+        "pass": "password",
+        "server": {
+          "poolSize": 5,
+          "reconnectTries": 1000,
+          "reconnectInterval": 1000
+        }
+      }
+    }
+  }
+}

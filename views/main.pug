@@ -1,0 +1,57 @@
+div(id="main")
+    header.major.container
+        each line in landing.about[language]
+            if (line)
+                h3= line
+            else
+                br
+    div.box
+        mixin project(idx, projectInfo)
+            - var className = idx%2 ? 'right' : 'left'
+            section.feature(class= className)
+                div.image.icon.links
+                    if projectInfo.img
+                        img(src=projectInfo.img)
+                    else
+                        div.image-svg(class= projectInfo.name.toLowerCase())
+                    if projectInfo.link
+                        a.lft.icon.fa-play(href=projectInfo.link target="_blank")
+                        a.rght.icon.fa-github(href=projectInfo.git target="_blank")
+                    else
+                        a.ctr.icon.fa-github(href=projectInfo.git target="_blank")
+                div.content
+                    h3= projectInfo.name
+                    p= projectInfo.description[language]
+                    p
+                        each tech, index in projectInfo.stack
+                            - var point = (index == projectInfo.stack.length - 1) ? '' : ' • '
+                            b #{tech} #{point}
+        each project, index in landing.projects
+            +project(index, project)
+    footer.major.framed
+        h3= landing.crew.about[language].header
+        each line in landing.crew.about[language].text
+            if (line)
+                p= line
+            else
+                br
+        br
+        div.crew
+            mixin crewman(crewmanInfo)
+                div.avatar
+                    h5= crewmanInfo.name[language]
+                    div.photo(id= crewmanInfo.id)
+                    div.summary= crewmanInfo.summary[language]
+                    br
+                    a(href=crewmanInfo.cv_link target="_blank") Get CV
+            each man in landing.crew.team
+                +crewman(man)
+        div.team-contacts
+            br
+            h3 find us on
+            a(href="http://programming.kr.ua/en")
+                div.contacts
+                    span.sh Ш
+                    span.plus ++
+            a.pull-right(href="http://kowo.me/")
+                img.kowo(src="images/kowo.jpg")
